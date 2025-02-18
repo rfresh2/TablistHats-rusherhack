@@ -116,7 +116,7 @@ loom {
 	if(accessWidenerFile.exists()) {
 		accessWidenerPath = accessWidenerFile
 	} else {
-		println("RUSHERHACK ACCESS WIDENER NOT FOUND. Please run the 'updateAccessWidener' task.")
+//		println("RUSHERHACK ACCESS WIDENER NOT FOUND. Please run the 'updateAccessWidener' task.")
 	}
 
 	//disable run configs
