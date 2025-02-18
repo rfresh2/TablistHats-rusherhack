@@ -29,6 +29,9 @@ jobs:
       - name: Build Plugin
         run: ./gradlew build
 
+      - name: Get Version
+        run: echo "PLUGIN_VERSION=$(./gradlew -q getPluginVersion)" >> $GITHUB_ENV
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
