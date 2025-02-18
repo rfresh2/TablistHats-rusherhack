@@ -46,7 +46,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ env.PLUGIN_VERSION }}
-          commit: mainline
+          commit: master
           artifacts: "build/libs/TablistHats-*.jar"
           allowUpdates: true
           makeLatest: true
