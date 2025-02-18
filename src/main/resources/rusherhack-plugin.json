@@ -1,0 +1,22 @@
+{
+  "Plugin-Class": "tlh.TablistHatsPlugin",
+  "Name": "${project.plugin_name}",
+  "Version": "${project.plugin_version}",
+  "Description": "Always show player hats on the tablist",
+  "URL": "https://github.com/rfresh2/TablistHats-rusherhack",
+  "Authors": [
+    "rfresh2"
+  ],
+  "Minecraft-Versions": [
+    "1.20.1",
+    "1.20.2",
+    "1.20.4",
+    "1.20.6",
+    "1.21",
+    "1.21.1",
+    "1.21.4"
+  ],
+  "Mixin-Configs": [
+    "mixins.tablist-hats.json"
+  ]
+}

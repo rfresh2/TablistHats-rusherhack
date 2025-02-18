@@ -1,0 +1,47 @@
+name: Plugin Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Elevate wrapper permissions
+        run: chmod +x ./gradlew
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          dependency-graph: generate-and-submit
+
+      - name: Build Plugin
+        run: ./gradlew build
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TablistHats
+          path: build/libs/*.jar
+          if-no-files-found: error
+
+      - name: Github Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ env.PLUGIN_VERSION }}
+          commit: mainline
+          artifacts: "build/libs/TablistHats-*.jar"
+          allowUpdates: true
+          makeLatest: true
+          omitBodyDuringUpdate: true
